@@ -12,8 +12,8 @@
 
       <v-col class="mb-4">
         <h1 class="display-2 font-weight-bold mb-3">
-          Welcome to Vuetify
-        </h1>
+          Welcome to 
+        </h1><br>
 
         <p class="subheading font-weight-regular">
           For help and collaboration with other Vuetify developers,
@@ -32,6 +32,7 @@
         <h2 class="headline font-weight-bold mb-3">
           What's next?
         </h2>
+        <span @click="gotoLink()">about</span>
 
         <v-row justify="center">
           <a
@@ -94,7 +95,9 @@
 <script>
 export default {
   name: 'HelloWorld',
-
+  props: {
+    message: String
+  },
   data: () => ({
     ecosystem: [
       {
@@ -132,6 +135,7 @@ export default {
         href: 'https://medium.com/vuetify'
       }
     ],
+
     whatsNext: [
       {
         text: 'Explore components',
@@ -146,6 +150,10 @@ export default {
         href: 'https://vuetifyjs.com/getting-started/frequently-asked-questions'
       }
     ]
-  })
+  }),
+  created() {
+  },
+  methods: {
+  }
 }
 </script>
