@@ -152,8 +152,17 @@ export default {
     ]
   }),
   created() {
+    this.$EventBus.$on('getUsername', this.getUsername)
+    this.getUsername()
   },
   methods: {
+    getUsername () {
+      if (localStorage.getItem('username') !== null) {
+        this.username = localStorage.getItem('username')
+      } else {
+        this.username = 'Vuetify'
+      }
+    }
   }
 }
 </script>
