@@ -3,7 +3,7 @@
         <v-card-title>เข้าสู่ระบบ</v-card-title>
         <v-card-text>
             <v-form
-                ref="form"
+                ref="loginForm"
                 v-model="valid"
                 lazy-validation
             >
@@ -23,13 +23,6 @@
                 required
                 outlined
             ></v-text-field>
-
-            <v-checkbox
-                v-model="checkbox"
-                :rules="[v => !!v || 'You must agree to continue!']"
-                label="Do you agree?"
-                required
-            ></v-checkbox>
 
             <v-btn
                 :disabled="!valid"
@@ -61,8 +54,10 @@ export default {
     }),
     methods: {
         Login () {
-            if (this.$refs.form.validate()) {
+            if (this.$refs.loginForm.validate(true)) {
                 localStorage.setItem('username', this.name)
+                this.$EventBus.$emit('getUsername')
+                this.$router.push("/")
             } 
         }
     }
