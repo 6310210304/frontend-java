@@ -28,7 +28,7 @@
       
       </v-toolbar>
     </template>
-    <template v-slot:item.actions="{ item }">
+    <template v-slot:[`item.actions`]="{ item }">
       <v-icon
         small
         class="mr-2"
@@ -283,13 +283,20 @@
                 this.dialogCreate = true
                 this.formTitle = 'เพิ่มข้อมูล'
                 this.editedItem = item
+            } else {
+                //this.dia
+                this.dialogCreate = true
+                this.formTitle = 'แก้ไขข้อมูล'
+                this.editedItem = item
             }
       },
 
       editItem (item) {
-        this.editedIndex = this.desserts.indexOf(item)
-        this.editedItem = Object.assign({}, item)
-        this.dialog = true
+        console.log('item select', item)
+        console.log('index item', )
+        // this.editedIndex = this.desserts.indexOf(item)
+        // this.editedItem = Object.assign({}, item)
+        // this.dialog = true
       },
 
       deleteItem (item) {
@@ -328,6 +335,8 @@
         if (action === 'เพิ่มข้อมูล') {
             this.desserts.push(this.editedItem)
             this.close()
+        } else {
+            Object.assign(this.desserts[])
         }
       },
     },
