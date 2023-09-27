@@ -29,6 +29,13 @@
 
       <v-btn
         text
+        @click="goToProduct()"
+      >
+        CONNECT BACKEND
+      </v-btn>
+
+      <v-btn
+        text
         @click="goToManage()"
       >
         หน้าจัดการข้อมูล
@@ -61,6 +68,10 @@ export default {
     },
     goToManage() {
       this.$router.push('/manageTable')
+      // this.$router.push({path: })
+    },
+    goToProduct() {
+      this.$router.push('/productTable')
       // this.$router.push({path: })
     }
   }
